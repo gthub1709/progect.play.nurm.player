@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай футболиста</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="main-title">Угадай футболиста</h1>
+    
+    <div class="football"></div>
+    <div class="football"></div>
+    <div class="football"></div>
+    <div class="football"></div>
+    <div class="football"></div>
+    
+    <div class="game-container">
+        <div class="player-image-container">
+            <img id="playerImage" src="" alt="Футболист" class="player-image">
+            <div class="image-overlay"></div>
+        </div>
+        <div class="game-info">
+            <p id="hint" class="hint-text">Подсказка: </p>
+            <input type="text" id="user-input" placeholder="Введите имя футболиста">
+            <button onclick="checkAnswer()">Проверить</button>
+            <p id="score">Очки: 0</p>
+        </div>
+    </div>
+
+    <div class="end-message" id="endMessage">
+        МОЛОДЕЦ!<br>
+        НО ТЫ ЛОХ<br>
+        ХА-ХА-ХА!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a472a, #2c5338);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-title {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 42px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 
+        0 2px 4px rgba(0,0,0,0.4),
+        0 4px 12px rgba(0,0,0,0.3),
+        0 8px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+    letter-spacing: 1px;
+}
+
+.game-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+.player-image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.player-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.4)
+    );
+}
+
+.game-info {
+    padding: 20px 0;
+}
+
+.hint-text {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+input {
+    padding: 12px;
+    width: 90%;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+#score {
+    font-size: 18px;
+    margin-top: 15px;
+    color: white;
+}
+
+.football {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="white"/><path d="M50 5 L20 40 L50 75 L80 40 Z" fill="black"/><circle cx="50" cy="50" r="10" fill="black"/></svg>') center/cover;
+    animation: float 15s infinite linear;
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, 100px) rotate(90deg);
+    }
+    50% {
+        transform: translate(200px, 0) rotate(180deg);
+    }
+    75% {
+        transform: translate(100px, -100px) rotate(270deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
+
+.football:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.football:nth-child(2) { top: 70%; left: 20%; animation-delay: -3s; }
+.football:nth-child(3) { top: 40%; left: 80%; animation-delay: -6s; }
+.football:nth-child(4) { top: 80%; left: 60%; animation-delay: -9s; }
+.football:nth-child(5) { top: 20%; left: 50%; animation-delay: -12s; }
+
+.end-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.5),
+        0 0 20px rgba(255, 215, 0, 0.3),
+        0 0 30px rgba(255, 215, 0, 0.2),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    text-align: center;
+    animation: popIn 0.5s ease-out forwards;
+}
+
+.end-message.show {
+    display: block;
+}
+
+@keyframes popIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
